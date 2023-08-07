@@ -9,7 +9,7 @@ const dummyContacts = [
   { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
 ];
 
-const ContactList = () => {
+const ContactList = (setSelectedContactId) => {
     const [contacts,setContacts]=useState(dummyContacts);
     console.log("contacts:",contacts);
     useEffect(()=>{
@@ -22,9 +22,9 @@ const ContactList = () => {
                 console.log(error);
             }
         }
-       (fetchContacts(contacts))
-    }, [])
-    console.log("testing")
+       fetchContacts();
+    }, []);
+
     return (  
         <table>
         <thead>
@@ -38,14 +38,12 @@ const ContactList = () => {
             <td>Email</td>
             <td>Phone</td>
           </tr>
-          {contacts.map((contacts)=>{
-            return(
-                <ContactRow 
-                key={contacts.id}
-                contact={contacts}
-                setContacts={setContacts}
-                />
-            )
+          {contacts.map((contact)=>{
+
+            return <ContactRow 
+            key={contact.id} contact={contact}
+                />;
+        
           })}
         </tbody>
       </table>
