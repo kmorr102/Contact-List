@@ -9,7 +9,7 @@ const dummyContacts = [
   { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
 ];
 
-const ContactList = (setSelectedContactId) => {
+const ContactList = ({setselectedContactId}) => {
     const [contacts,setContacts]=useState(dummyContacts);
     console.log("contacts:",contacts);
     useEffect(()=>{
@@ -42,6 +42,7 @@ const ContactList = (setSelectedContactId) => {
 
             return <ContactRow 
             key={contact.id} contact={contact}
+            setselectedContactId={setselectedContactId}
                 />;
         
           })}

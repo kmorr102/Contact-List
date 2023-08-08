@@ -4,13 +4,14 @@ import { useState } from 'react';
 
 
 export default function App() {
-const [selectedContactId,setSelectedContactId] =useState (null)
+const [selectedContactId,setselectedContactId]= useState(null)
+  console.log("selectedContactId",selectedContactId);
   return(
 <>
-{selectedContactId ? <h1>Selected contact view</h1>:null }
+{selectedContactId ? <h1>Selected Contact View</h1>:null }
 
 <ContactList
-setSelectedContactId={setSelectedContactId}
+setselectedContactId={setselectedContactId}
 />
 </>
   );
